@@ -1,12 +1,34 @@
+import java.util.Scanner;
+
 public class Puntos {
-    void holaMundo() {
+    //Punto 1
+    public void holaMundo() {
         System.out.printf("hola mundo");
     }
 
-    void holamundo() {
-        System.out.printf("hola mundo");
+    //Punto 2
+    public static void punto 2() {
+        String nombre = "Carlos";
+        System.out.println("Hola" + nombre);
     }
-}
+
+    //Punto 3
+    public static void punto 3() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese un numero:");
+        double numero = scanner.nextDouble();
+
+        double cuadrado = numero * numero;
+        System.out.println("El cuadrado del numero es:" + cuadrado);
+
+    }
+
+    //Punto 4
+    public static void punto 4() {
+        Scanner scanner
+    }
+
 
 
 
@@ -18,8 +40,5 @@ public class Puntos {
                 + n5 * 0.20;
 
 
-    }
-    void holaMundo(){
-        System.out.printf("hola mundo");
     }
 }
