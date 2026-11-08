@@ -543,5 +543,80 @@ public class Puntos {
         }
         scanner.close();
     }
+
+    void punto40() {
+        Scanner scanner = new Scanner(System.in);
+        double capacidadMax = 18000.0;
+        double pesoTotalActual = 0;
+        int totalBultos = 0;
+        double pesoMaximo = -1;
+        double pesoMinimo = Double.MAX_VALUE;
+        double sumaPesos = 0;
+        double ingresosPesos = 0;
+
+        System.out.println("--- Control de Equipaje Boeing 747 ---");
+        System.out.println("Capacidad máxima disponible: " + capacidadMax + " kg");
+
+        while (true) {
+            System.out.print("Ingrese el peso del bulto en kg (o 0/negativo para terminar): ");
+            double pesoBulto = scanner.nextDouble();
+
+            if (pesoBulto <= 0) {
+                break;
+            }
+
+            if (pesoBulto > 500) {
+                System.out.println("Error: Un bulto no puede exceder los 500 kg.");
+                continue;
+            }
+
+            if ((pesoTotalActual + pesoBulto) > capacidadMax) {
+                System.out.println("Error: El bulto excede la capacidad restante del avión (18,000 kg).");
+                continue;
+            }
+
+            pesoTotalActual += pesoBulto;
+            totalBultos++;
+            sumaPesos += pesoBulto;
+
+            if (totalBultos == 1) {
+                pesoMaximo = pesoBulto;
+                pesoMinimo = pesoBulto;
+            } else {
+                if (pesoBulto > pesoMaximo) {
+                    pesoMaximo = pesoBulto;
+                }
+                if (pesoBulto < pesoMinimo) {
+                    pesoMinimo = pesoBulto;
+                }
+            }
+
+            double costoBulto = 0;
+            if (pesoBulto >= 26 && pesoBulto <= 300) {
+                costoBulto = pesoBulto * 1500;
+            } else if (pesoBulto >= 301 && pesoBulto <= 500) {
+                costoBulto = pesoBulto * 2500;
+            }
+            ingresosPesos += costoBulto;
+
+            System.out.println("Bulto aceptado. Costo: $" + costoBulto + " pesos.");
+            System.out.println("Peso acumulado en avión: " + pesoTotalActual + " / " + capacidadMax + " kg\n");
+        }
+
+        System.out.println("\n--- Resumen del Vuelo ---");
+        System.out.println("a. Número total de bultos ingresados: " + totalBultos);
+        if (totalBultos > 0) {
+            System.out.println("b. Bulto más pesado: " + pesoMaximo + " kg | Bulto más liviano: " + pesoMinimo + " kg");
+            double promedio = sumaPesos / totalBultos;
+            System.out.println("c. Peso promedio de los bultos: " + promedio + " kg");
+            System.out.println("d. Ingreso total en pesos: $" + ingresosPesos);
+            double tasaDolar = 4000.0;
+            double ingresosDolares = ingresosPesos / tasaDolar;
+            System.out.println("   Ingreso total en dólares (ref. $4.000): $" + ingresosDolares);
+        } else {
+            System.out.println("No se ingresaron bultos.");
+        }
+        scanner.close();
+    }
 }
 
