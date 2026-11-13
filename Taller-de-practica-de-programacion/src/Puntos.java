@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Puntos {
 
     void punto1() {
-        System.out.printf("hola mundo");
+        String texto1 = "Hola";
+        String texto2 = "Mundo";
+        System.out.println(texto1 + " " + texto2);
     }
 
     void punto2() {
@@ -22,20 +24,13 @@ public class Puntos {
 
     void punto4() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("--- Cálculo de Promedio Ponderado ---");
-        System.out.print("Ingrese la nota 1 (15%): ");
-        double n1 = scanner.nextDouble();
-        System.out.print("Ingrese la nota 2 (20%): ");
-        double n2 = scanner.nextDouble();
-        System.out.print("Ingrese la nota 3 (15%): ");
-        double n3 = scanner.nextDouble();
-        System.out.print("Ingrese la nota 4 (30%): ");
-        double n4 = scanner.nextDouble();
-        System.out.print("Ingrese la nota 5 (20%): ");
-        double n5 = scanner.nextDouble();
+        System.out.print("Ingrese el primer número: ");
+        double a = scanner.nextDouble();
+        System.out.print("Ingrese el segundo número: ");
+        double b = scanner.nextDouble();
 
-        double promedioFinal = calcularPromedio(n1, n2, n3, n4, n5);
-        System.out.println("El promedio ponderado es: " + promedioFinal);
+        double suma = a + b;
+        System.out.println("La suma es: " + suma);
         scanner.close();
     }
 
@@ -356,10 +351,19 @@ public class Puntos {
 
     void punto24() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese una palabra: ");
-        String palabra = scanner.next();
-        boolean esPali = esPalindromo(palabra);
-        System.out.println("¿Es palíndromo?: " + esPali);
+        System.out.print("Ingrese un número del día de la semana (1 al 7): ");
+        int dia = scanner.nextInt();
+
+        switch (dia) {
+            case 1: System.out.println("Lunes"); break;
+            case 2: System.out.println("Martes"); break;
+            case 3: System.out.println("Miércoles"); break;
+            case 4: System.out.println("Jueves"); break;
+            case 5: System.out.println("Viernes"); break;
+            case 6: System.out.println("Sábado"); break;
+            case 7: System.out.println("Domingo"); break;
+            default: System.out.println("Número fuera de rango (debe ser entre 1 y 7)");
+        }
         scanner.close();
     }
 
